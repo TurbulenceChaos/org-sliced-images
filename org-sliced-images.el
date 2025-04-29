@@ -267,7 +267,7 @@ compatible with Emacs 28+."
                                        (truncate (* (fround (/ image-pixel-h font-height 1.0)) font-height)))
                                  (setf (image-property image :height) image-pixel-h)
                                  (setf (image-property image :width) nil))
-                               (let* ((image-line-h (/ image-pixel-h font-height 1.0001))
+                               (let* ((image-line-h (max 1.0001 (/ image-pixel-h font-height 1.0001)))
                                       (y 0.0) (dy (/ image-line-h))
                                       (left-margin nil)
                                       (dummy-zone-start nil)
